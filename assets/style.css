@@ -93,6 +93,18 @@ body {
 }
 
 /* ========== CAROUSSEL ========== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .carousel-container {
   position: relative;
   width: 100%;
@@ -443,12 +455,23 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: 1rem;
+  font-size: 1.2rem;
   background: white;
   color: black;
   border: none;
   cursor: pointer;
   padding: 0.3em 0.6em;
+}
+
+.lightbox-prev:focus-visible,
+.lightbox-next:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+.lightbox-prev:focus:not(:focus-visible),
+.lightbox-next:focus:not(:focus-visible) {
+  outline: none;
 }
 
 .lightbox-prev {
@@ -463,6 +486,36 @@ body.lightbox-open {
   overflow: hidden;
 }
 
+.lightbox-close {
+  position: absolute;
+  top: 19px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: black;
+  background: white;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.lightbox-close:focus {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+@media (max-width: 1000px) {
+  .lightbox-close {
+    top: 3rem;
+    font-size: 1.8rem;
+  }
+}
+@media (max-width: 640px) {
+  .lightbox-close {
+    top: 5rem;
+    font-size: 1.8rem;
+  }
+}
 /* ========== QUOTES ========== */
 #quote-gallery, #quote-home {
   background-color: white;
@@ -504,6 +557,17 @@ blockquote {
   font-weight: 800;
   font-size: 22px;
   font-family: Spectral;
+}
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media all and (max-width: 1000px) {
